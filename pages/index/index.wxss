@@ -1,0 +1,41 @@
+/* pages/index/index.wxss */
+page{
+  background: #00b26a;
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.img{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 50%;
+  margin:50rpx 0  40rpx 0;
+}
+.name{
+  color: #ccc;
+  font-size: 28rpx;
+  margin: 0 0 200rpx  0;
+}
+.intro{
+  border: 1px solid black;
+  padding:16rpx 32rpx;
+  font-size: 32rpx;
+}
+.ho{
+  width: 200rpx;
+  height: 200rpx;
+  background: blue;
+}
+.hov{
+  background: red;  
+}
+.son{
+    width: 100rpx;
+    height: 100rpx;
+     background: yellow;
+}
+.sonv{
+  background-color: black;
+}

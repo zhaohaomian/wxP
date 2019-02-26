@@ -1,0 +1,113 @@
+/* pages/article/article.wxss */
+.container{
+  margin-top: 20rpx;
+  padding: 10rpx;
+}
+.header{
+  font-size: 40rpx;
+}
+.author{
+  margin-top: 20rpx;
+}
+.author text{
+  font-size: 28rpx;
+  color: #666;
+  margin-right: 20rpx;
+}
+.author text:first-of-type{
+  color: #576b95;
+}
+.content{
+  margin-top:30rpx;
+  font-size:38rpx;
+  text-indent:2em;
+}
+.content text{
+  line-height: 65rpx;
+}
+.bottom{
+  margin: 30rpx 0;
+  font-size: 28rpx;
+
+}
+.bottom text{
+    margin-right: 20rpx;
+}
+/* 轮播 */
+.banner{
+  width: 100%;
+  height: 500rpx;
+}
+.banner image{
+  width: 100%;
+  height: 100%;
+}
+.media{
+  display: flex;
+  justify-content: center;
+  margin-top: 30rpx;
+}
+/* 视频 */
+.shipin{
+  width: 80%;
+}
+.duck{
+  background: #ccc;
+  width: 100%;
+  height:100%;
+}
+/* 音频 */
+.audio-container{
+border: 1px solid #ccc;
+border-radius: 25rpx;
+  width: 80%;
+  height: 170rpx;
+  display: flex;
+  justify-content: center;
+  padding: 15rpx;
+}
+.control{
+  width: 20%;
+  height: 100%;
+  position: relative;
+}
+.control image{
+  width:80%;
+  height: 45%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+}
+.info{
+  flex: 1;
+}
+.info .title{
+  font-size: 32rpx;
+  letter-spacing: 5rpx;
+  margin-bottom: 15rpx;
+}
+.info .from{
+  font-size: 24rpx;
+  letter-spacing: 2rpx;
+  margin-bottom: 25rpx;
+}
+.progress{
+  width:100%;
+  position: relative;
+    margin-bottom: 10rpx;
+}
+.progress-circle{
+  width: 20rpx;
+  height: 20rpx;
+  background: #00b26a;
+  position: absolute;
+  left: 0;
+  top: -4rpx;
+  border-radius: 50%;
+}
+.time{
+  font-size: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,68 @@
+<!--pages/type/type.wxml-->
+<view class='type-container'>
+  <!-- 首部 -->
+  <view class="imgbox">
+    <image class="img" src="{{headerImgMsg.imgSrc}}"></image>
+    
+    <view class="introduce">
+      <view class="title">
+        <text>{{headerImgMsg.title}}</text>
+      </view>
+      <view class='bottom-box'>
+        <view class="share">
+          <button open-type="share" class='.btn'>
+            <image src='/image/list/article/icon/Icon_relay.png'></image>
+          </button> 
+        </view>
+        <view class="icons">
+            <image src='/image/list/article/icon/Icon_more.png' bind:tap="showBar"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 列表部 -->
+    <view class="list-container" >
+    <!-- 各个list-item -->
+    <view class='list-item' wx:for="{{articleList}}" wx:for-item="i" wx:key="typeId" data-id="{{i.id}}"  bind:tap="onTap">
+      
+      <!-- 头像 人数 -->
+      <view class='list-item-head'>
+        <image src="{{i.markPeopleAvatar}}"></image>
+        <text>{{i.markPeople}}</text>
+        <text>等</text>
+        <text>{{i.markCount}}</text>
+        <text>人马克了</text>
+      </view>
+      
+      <!-- 图片 -->
+      <view class='list-item-img'>
+        <image src="{{i.articleImgSrc}}"></image>
+      </view>
+      
+      <!-- 描述 -->
+      <view class='list-item-introduce'>
+        <text>{{i.articleTitle}}</text>
+      </view>
+      
+      <!-- 图标 -->
+      <view class='list-item-bottom'>
+        <text>{{i.publishTime}}</text> 
+        <view class='icon-box'>
+          <view>
+            <image src='/image/list/article/icon/Icon_more.png' data-articletype="{{i.articleType}}" bind:tap="showBar"></image>
+          </view>
+          <view>
+              <button open-type='share' class='btn'>
+                <image src='/image/list/article/icon/Icon_relay.png'></image>
+              </button>
+          </view>
+          <view bind:tap="onChangeLike"  data-index="{{index}}">
+              <image wx:if="{{typelikeArray[index]}}" src='/image/list/article/icon/Icon_circle.png'></image>
+              <image wx:else src='/image/list/article/icon/Icon_circle_fill.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

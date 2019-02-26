@@ -1,0 +1,98 @@
+<!--pages/article/article.wxml-->
+<wxs src="../../util/filter.wxs" module="filter"></wxs>
+
+<view class='container'>
+
+  <view class='header'>
+    <text>{{article.title}}</text>
+  </view>
+
+  <view class='author'>
+    <text>{{article.author}}</text>
+    <text>{{article.publishTime}}</text>
+  </view>
+
+  <view class='media'>
+    <!-- 详情页,id为3显示轮播 -->
+    <swiper wx:if="{{article.banner.length}}"
+            indicator-dots='{{true}}' 
+            indicator-active-color="#00b26a" 
+            autoplay='{{true}}'
+            interval='2500'
+            duration='1000'
+            circular="{{true}}" 
+            class="banner">
+      <swiper-item wx:for="{{article.banner}}" wx:key='item'>
+        <image src='{{item}}'></image>
+      </swiper-item>
+    </swiper>
+   
+    <!-- 详情页id为10显示视频 -->
+      <video wx:elif="{{article.video.src}}" class='shipin'src="{{article.video.src}}" autoplay="{{true}}" direction="-90"></video>
+    
+   
+    <!-- 详情页id为11显示音频 -->
+        <view wx:else class='audio-container'>
+        
+          <view class='control'>
+            <image src='/image/start.jpg' bind:tap="onAudioPlay" data-src="{{article.audio.src}}" data-title="{{article.audio.title}}"></image>
+          </view>
+        
+          <view class='info'>
+          
+            <view class='title'>
+              <text>{{article.audio.title}}</text>
+            </view>
+
+            <view class='from'>
+              <text>{{article.audio.from}}</text>
+            </view>
+
+            <view class='progress'>
+                <progress percent="{{percent}}" ></progress>
+            </view>
+
+            <view class='time'>
+              <text>{{parse.parseNow(nowTime)}}</text>
+              <text>{{parse.parseEnd(article.audio.duration)}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    <view class='content'>
+      <text space="nbsp">{{filter(article.content)}}</text>
+    </view>
+    <view class='bottom'>
+      <text>阅读</text>
+      <text>{{article.readNum}}</text>
+    </view>
+</view>
+
+
+<wxs module="parse">
+  var parseEnd = function(time){
+    var m = parseInt(time/60);
+    var s = time%60;
+    m = m/10==0? '0'+m:''+m;
+     s = s/10==0? '0'+s:''+s; 
+     return m+":"+s;
+  }
+
+   var parseNow = function(time){
+    var m = parseInt(time/60);
+    var s = time%60;
+    m = m/10==0? '0'+m:''+m;
+     s = s/10==0? '0'+s:''+s; 
+     var result =  m+":"+s;
+     if(result=='NaN:NaN'){
+      return '00:00';
+     }
+     return result;
+  };
+
+  module.exports = {
+    parseEnd:parseEnd,
+    parseNow:parseNow
+  }
+</wxs>
+

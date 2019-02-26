@@ -1,0 +1,53 @@
+/* pages/type/type.wxss */
+@import '../common.wxss';
+.type-container{
+  background: #ebebeb;
+}
+.imgbox{
+  position: relative;
+  margin-bottom:100rpx;
+  background: #ebebeb;
+}
+.imgbox .img{
+  width:100%;
+  height:600rpx;
+}
+.imgbox .introduce{
+  width: 80%;
+  height: 200rpx;
+  position: absolute;
+  left: 80rpx;
+  bottom: -100rpx;
+  background: #fff;
+  padding: 25rpx;
+  box-sizing: border-box;
+}
+.title{
+  font-size: 50rpx;
+  font-weight: bold;
+}
+ .share,.icons{
+   width: 50rpx;
+   height: 50rpx;
+   display: inline-block;
+   margin: 15rpx;
+
+}
+.introduce image{
+  width:50rpx;
+  height:50rpx;
+}
+.bottom-box{
+  position: absolute;
+  bottom: 0;
+  right: 25rpx;
+}
+.share .btn{
+    background: transparent;
+    width:50rpx;
+    height:50rpx; 
+    padding: 0;
+}
+/* 列表 */
+/* 公用样式 */
+/* 复用common.wxss */

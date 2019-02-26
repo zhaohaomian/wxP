@@ -1,0 +1,65 @@
+<!--pages/list.wxml-->
+<view class="container">
+  <!-- 图片 -->
+  <view class="recommend-container">
+      <text class='recommend-article'>{{recommend.date}}</text>
+      <text class='recommend-title'>{{recommend.title}}</text>
+      <image class='recommend-image' src="{{recommend.imgSrc}}"></image>
+
+      <view class='recommend-box'>
+        <text>+</text>
+        <text wx:for="{{markType}}" wx:key="typeId" data-id="{{item.typeId}}" bind:tap="onPassMsg"> {{item.type}}</text>
+        <text>●●●</text>
+      </view>
+
+  </view>
+ 
+ 
+  <!-- 列表 -->
+  <view class="list-container" >
+    <!-- 各个list-item -->
+    <view class='list-item' wx:for="{{articleList}}" wx:for-item="i" wx:key="typeId">
+      
+      <!-- 头像 人数 -->
+      <view class='list-item-head'>
+        <image src="{{i.markPeopleAvatar}}"></image>
+        <text>{{i.markPeople}}</text>
+        <text>等</text>
+        <text>{{i.markCount}}</text>
+        <text>人马克了</text>
+      </view>
+      
+      <!-- 图片 -->
+      <view class='list-item-img'>
+        <image src="{{i.articleImgSrc}}"></image>
+      </view>
+      
+      <!-- 描述 -->
+      <view class='list-item-introduce'>
+        <text>{{i.articleTitle}}</text>
+      </view>
+      
+      <!-- 图标 -->
+      <view class='list-item-bottom'>
+        <text>{{i.articleType}}</text> 
+        <view class='icon-box'>
+          <view>
+            <image src='/image/list/article/icon/Icon_more.png' data-articletype="{{i.articleType}}" bind:tap="showBar"></image>
+          </view>
+          <view>
+              <button open-type='share' class='btn'>
+                <image src='/image/list/article/icon/Icon_relay.png'></image>
+              </button>
+          </view>
+          <view bind:tap="onChangeLike"  data-index="{{index}}">
+              <image wx:if="{{likeArray[index]}}" src='/image/list/article/icon/Icon_circle.png'></image>
+              <image wx:else src='/image/list/article/icon/Icon_circle_fill.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  
+  
+  
+  </view>
+</view>

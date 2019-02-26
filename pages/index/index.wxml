@@ -1,0 +1,6 @@
+<!--pages/index/index.wxml-->
+<view class='container'>
+  <image src="/image/a.jpg" class='img'></image>
+  <text class="name" space="ensp">JVIO  安妮</text>
+  <text class='intro' selectable='true' bind:tap="go">安妮小公举</text>
+</view>
